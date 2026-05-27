@@ -127,7 +127,7 @@ function statusStyle(type) {
   }
 }
 
-export default function OrdersPage() {
+export default function Orders() {
   const [activeTab, setActiveTab] = useState("all");
 
   const [search, setSearch] = useState("");
@@ -155,7 +155,7 @@ export default function OrdersPage() {
   }, [activeTab, search]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6" >
       {/* Header */}
       <div>
         <h1 className="text-2xl md:text-4xl font-bold text-slate-800">

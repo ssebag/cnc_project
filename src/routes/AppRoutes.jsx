@@ -1,19 +1,19 @@
 import { Routes, Route } from "react-router-dom";
 import DashboardLayout from "./../layouts/DashboardLayout";
-import DashboardPage from "./../pages/DashboardPage";
-import OrdersPage from "./../pages/OrdersPage";
-import InventoryPage from "../pages/InventoryPage";
-import ReportsPage from "../pages/ReportsPage";
+import Dashboard from "./../pages/dashboard_page/Dashboard";
+import Orders from "./../pages/orders_page/Orders";
+import Inventory from "../pages/inventory_page/Inventory";
+import Reports from "../pages/reports_page/Reports";
 import SettingsPage from "../pages/SettingsPage";
 
 export default function AppRoutes() {
   return (
     <Routes>
       <Route element={<DashboardLayout />}>
-        <Route path="/" element={<DashboardPage />} />
-        <Route path="/orders" element={<OrdersPage />} />
-        <Route path="/inventory" element={<InventoryPage />} />
-        <Route path="/reports" element={<ReportsPage />} />
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/inventory" element={<Inventory />} />
+        <Route path="/reports" element={<Reports />} />
         <Route path="/settings" element={<SettingsPage />} />
       </Route>
     </Routes>

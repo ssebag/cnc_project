@@ -21,7 +21,7 @@ export default function Reports() {
   const [activeTab, setActiveTab] = useState<ReportsPeriod>('month');
 
   return (
-    <div className="min-h-screen bg-[#F5F7FA] bg-background" dir="rtl">
+    <div className="min-h-screen bg-[#F5F7FA] bg-background" >
       <main className="w-full p-4 md:p-6 lg:p-8 pb-20 md:pb-8">
         <div className="space-y-6">
           {/* Header */}
