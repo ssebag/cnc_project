@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
 import { NavLink } from "react-router-dom";
-import { sidebarLinks } from "./../data/sidebarLinks";
+import { links } from '../data/sidebarLinks';
 
 export default function Sidebar({
   sidebarOpen,
@@ -62,7 +62,7 @@ export default function Sidebar({
         {/* Links */}
         <nav className="mt-6 px-4">
           <ul className="space-y-3">
-            {sidebarLinks.map((item) => {
+            {links.map((item) => {
               const Icon = item.icon;
 
               return (
