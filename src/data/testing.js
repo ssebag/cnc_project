@@ -106,12 +106,12 @@ export const alert =[
      description:"مستوى الألمنيوم أقل من الحد الأدنى (15 كجم متبقية)"
     },
     {
-     type:" warning",   
+     type:" error",   
      title:"خطأ في التحقق",
      description:"الطلب #1235 يحتوي على مسارات مفتوحة - يحتاج لإصلاح الذكاء الاصطناعي"
     },
     {
-     type:" warning",   
+     type:" info",   
      title:"جدولة الصيانة",
      description:"الصيانة الدورية مستحقة بعد 20 ساعة تشغيل"
     }

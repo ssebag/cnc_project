@@ -1,29 +1,57 @@
+import React from 'react';
 import {
-    AlertTriangle,
-    CircleAlert,
-    Info
+  AlertTriangle,
+  CircleAlert,
+  Info
 } from "lucide-react";
 
 import StatusCard from './components/StatusCard'
 import ActionCard from './components/ActionCard'
 import ActivityCard from './components/ActivityCard'
 import MaterialCard from './components/MaterialCard'
-import { activities, materials, status , action } from "./.././../data/testing";
+import AlertCard from './components/AlertCard'
+import { activities, materials, status , action , alert } from "./.././../data/testing";
+import DashbardHeader from "./components/DashbardHeader";
 
-export default function DashboardPage() {
+interface StatusStyleResult {
+  classes: string;
+  Icon: React.ComponentType<any>;
+}
+
+export const alertStyle = (type: string): StatusStyleResult => {
+  switch (type.trim()) {
+    case "warning":
+      return {
+        classes: "bg-yellow-50 border-yellow-200 text-yellow-800",
+        Icon: AlertTriangle,
+      };
+
+    case "error":
+      return {
+        classes: "bg-red-50 border-red-200 text-red-800",
+        Icon: CircleAlert,
+      };
+      case "info":
+        return {
+          classes: "bg-blue-50 border-blue-200 text-blue-800",
+          Icon: Info,
+        };
+  
+      default:
+        return {
+          classes: "bg-slate-50 border-slate-200 text-slate-800",
+          Icon: Info,
+        };
+      }
+}
+
+
+export default function Dashboard() {
 
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
-        <h1 className="text-2xl md:text-4xl font-bold text-slate-800">
-          نظام تشغيل ورش CNC
-        </h1>
-
-        <p className="text-slate-500 mt-2">
-          مدعوم بالذكاء الاصطناعي - لوحة التحكم التشغيلية
-        </p>
-      </div>
+      <DashbardHeader />
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -41,60 +69,18 @@ export default function DashboardPage() {
 
       {/* Alerts */}
       <div className="space-y-4">
-        {/* Warning */}
-        <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-5 flex items-start gap-3">
-          <AlertTriangle className="text-yellow-500 mt-1" />
+      {alert.map((item) => {
+        const { classes, Icon } = alertStyle(item.type);
 
-          <div>
-            <h3 className="font-bold text-yellow-700">
-              مخزون منخفض
-            </h3>
-
-            <p className="text-yellow-600 mt-1">
-              مستوى الألمنيوم أقل من الحد الأدنى
-              (15 كجم متبقية)
-            </p>
-          </div>
-        </div>
-
-        {/* Error */}
-        <div className="bg-red-50 border border-red-200 rounded-2xl p-5 flex items-start gap-3">
-          <CircleAlert className="text-red-500 mt-1" />
-
-          <div>
-            <h3 className="font-bold text-red-700">
-              خطأ في التحقق
-            </h3>
-
-            <p className="text-red-600 mt-1">
-              الطلب #1235 يحتوي على مسارات
-              مفتوحة - يحتاج لإصلاح الذكاء
-              الاصطناعي
-            </p>
-          </div>
-        </div>
-
-        {/* Info */}
-        <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
-          <div className="flex items-start gap-3">
-            <Info className="text-blue-500 mt-1" />
-
-            <div className="flex-1">
-              <h3 className="font-bold text-blue-700">
-                جدولة الصيانة
-              </h3>
-
-              <p className="text-blue-600 mt-1">
-                الصيانة الدورية مستحقة بعد 20
-                ساعة تشغيل
-              </p>
-            </div>
-          </div>
-
-          <button className="bg-blue-500 hover:bg-blue-600 transition-all text-white px-5 py-2 rounded-xl mt-4">
-            إضافة تحديث
-          </button>
-        </div>
+        return (
+          <AlertCard 
+            key={item.id} 
+            {...item} 
+            className={classes} 
+            Icon={Icon}         
+          />
+        );
+      })}
       </div>
 
       <div className="flex flex-col gap-5 lg:flex-row  justify-between">
