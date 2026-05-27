@@ -1,10 +1,14 @@
 import './App.css'
-import AppRoutes from "./routes/AppRoutes";
+import Inventory from './pages/inventory_page/Inventory'
+import Reports from './pages/reports_page/Reports'
 
 function App() {
-
-  return <AppRoutes />;
-  
+  return (
+    <>
+      <Inventory />
+      {/* <Reports /> */}
+    </>
+  )
 }
 
 export default App
