@@ -1,11 +1,5 @@
 import type { Links } from '../types/link';
-import {
-    LayoutDashboard,
-    Package,
-    ClipboardList,
-    FileBarChart,
-    Settings,
-  } from "lucide-react";
+import { LayoutDashboard, Package, ClipboardList, FileBarChart, Settings} from "lucide-react";
   
 export const links: Links[] = [
     {

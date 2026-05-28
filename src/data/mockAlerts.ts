@@ -1,8 +1,4 @@
-import {
-    AlertTriangle,
-    CircleAlert,
-    Info,
-  } from "lucide-react";
+import { AlertTriangle, CircleAlert, Info } from "lucide-react";
   
 import type { AlertItem } from '../types/alert';
 

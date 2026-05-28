@@ -1,10 +1,5 @@
 import type { ActivityItem } from '../types/activity';
-import {
-    CircleAlert,
-    Clock,
-    CircleCheckBig,
-    Play,
-  } from "lucide-react";
+import { CircleAlert, Clock, CircleCheckBig, Play } from "lucide-react";
 
 export const mockActivitiesData: ActivityItem[] = [
     {

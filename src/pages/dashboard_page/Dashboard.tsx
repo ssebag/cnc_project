@@ -1,10 +1,4 @@
-import {
-  TrendingUp,
-  PackageCheck,   
-  FileBox,
-  FileText,
-} from "lucide-react";
-
+import { TrendingUp, PackageCheck, FileBox, FileText} from "lucide-react";
 import StatusCard from './components/StatusCard'
 import ActionCard from './components/ActionCard'
 import ActivityCard from './components/ActivityCard'
