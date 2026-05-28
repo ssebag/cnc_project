@@ -1,6 +1,7 @@
 import React from 'react'
 
-function ActivityCard({id, title, status, Icon, progress, time}) {
+function ActivityCard({id, title, status, Icon , workProgress, time}) {
+    
   return (
     <div className="border border-gray-100 rounded-2xl p-4"
     >
@@ -34,19 +35,19 @@ function ActivityCard({id, title, status, Icon, progress, time}) {
                 {status}
                 </p>
             </div>
-            {/* Progress */}
+            {/* workProgress */}
             <div className="mt-4 flex gap-5 items-center justify-end">
             <div className="w-[50%] h-2 bg-gray-200 rounded-full overflow-hidden ">
                 <div
                 className="h-full bg-emerald-500 rounded-full"
                 style={{
-                    width: `${progress}%`,
+                    width: `${workProgress}%`,
                 }}
                 />
             </div>
 
             <div className="text-sm text-slate-600">
-                {progress}%
+                {workProgress}%
             </div>
             </div>                 
             </div>

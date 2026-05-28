@@ -1,22 +1,23 @@
 import React from 'react'
 
-function StatusCard({titleStatus , numberStatus, detailsStatus, IconStatus, iconStyleStatusColor}) {
+function StatusCard({title , number, description, icon}) {
   return (
     <div className="flex justify-between bg-white rounded-2xl p-6 shadow-sm">
          <div>
             <h3 className="text-slate-500">
-              {titleStatus}
+              {title}
             </h3>
 
             <div className="text-4xl font-bold mt-3">
-              {numberStatus}
+              {number}
             </div>
 
             <p className="text-emerald-600 mt-2">
-              {detailsStatus}
+              {description}
             </p>
          </div>
-         <IconStatus size={52} className={`${iconStyleStatusColor}  bg-gray-100 p-3 rounded-sm `} />
+         {icon}
+     
         </div>
   )
 }

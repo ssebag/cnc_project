@@ -1,6 +1,9 @@
 import React from 'react'
 
-function MaterialCard({name, value}) {
+function MaterialCard({name, stock , maxStock}) {
+
+  const stockPercentage = (stock / maxStock) * 100;
+
   return (
     <div>
         <div className="flex items-center justify-between mb-2">
@@ -9,16 +12,14 @@ function MaterialCard({name, value}) {
             </span>
 
             <span className="text-slate-500">
-            {value} كجم متبقي
+            {stock} كجم متبقي
             </span>
         </div>
 
         <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
             <div
             className="h-full bg-sky-500 rounded-full"
-            style={{
-                width: `${value}%`,
-            }}
+            style={{ width: `${Math.min(stockPercentage, 100)}%` }}
             />
         </div>
     </div>

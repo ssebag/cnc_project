@@ -1,8 +1,8 @@
-import React from 'react';
 import {
-  AlertTriangle,
-  CircleAlert,
-  Info
+  TrendingUp,
+  PackageCheck,   
+  FileBox,
+  FileText,
 } from "lucide-react";
 
 import StatusCard from './components/StatusCard'
@@ -10,41 +10,10 @@ import ActionCard from './components/ActionCard'
 import ActivityCard from './components/ActivityCard'
 import MaterialCard from './components/MaterialCard'
 import AlertCard from './components/AlertCard'
-import { activities, materials, status , action , alert } from "./.././../data/testing";
 import DashbardHeader from "./components/DashbardHeader";
-
-interface StatusStyleResult {
-  classes: string;
-  Icon: React.ComponentType<any>;
-}
-
-export const alertStyle = (type: string): StatusStyleResult => {
-  switch (type.trim()) {
-    case "warning":
-      return {
-        classes: "bg-yellow-50 border-yellow-200 text-yellow-800",
-        Icon: AlertTriangle,
-      };
-
-    case "error":
-      return {
-        classes: "bg-red-50 border-red-200 text-red-800",
-        Icon: CircleAlert,
-      };
-      case "info":
-        return {
-          classes: "bg-blue-50 border-blue-200 text-blue-800",
-          Icon: Info,
-        };
-  
-      default:
-        return {
-          classes: "bg-slate-50 border-slate-200 text-slate-800",
-          Icon: Info,
-        };
-      }
-}
-
+import { mockActivitiesData } from '../../data/mockActivities'
+import { mockMaterialsData } from '../../data/mockMaterials'
+import { mockAlertsData } from '../../data/mockAlerts'
 
 export default function Dashboard() {
 
@@ -55,32 +24,51 @@ export default function Dashboard() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      {status.map((item) => (
-            <StatusCard key={item.id} {...item} />
-            ))}
+        <StatusCard 
+          title="الطلبات النشطة"
+          number="24"
+          description="+12% من الأسبوع الماضي"
+          icon={<PackageCheck size={52} className="text-blue-500 bg-gray-100 p-3 rounded-sm" />}
+        />
+         <StatusCard 
+          title="كفاءة الإنتاج"
+          number="9%"
+          description="+3% من الأسبوع الماضي"
+          icon={<TrendingUp size={52} className="text-emerald-600 bg-gray-100 p-3 rounded-sm" />}
+        />  
       </div>
+     
 
       {/* Action Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {action.map((item) => (
-            <ActionCard key={item.id} {...item} />
-            ))}
+        <ActionCard 
+           title= "طلب جديد"
+           description="ابدأ معالجة بالذكاء الاصطناعي"
+           icon= {<PackageCheck size={40}  />}
+           color="bg-blue-500"
+          />
+           <ActionCard 
+            title= "فاتورة جديدة"
+            description="إنشاء فاتورة للزبون"
+            icon= {<FileText size={40}  />}
+            color= "bg-emerald-600"
+          />
+           <ActionCard 
+            title= "مكتبة التصاميم"
+            description="تصفح التصاميم المحفوظة"
+            icon= {<FileBox size={40} />}
+            color= "bg-blue-500"
+          />
       </div>
 
       {/* Alerts */}
       <div className="space-y-4">
-      {alert.map((item) => {
-        const { classes, Icon } = alertStyle(item.type);
-
-        return (
-          <AlertCard 
-            key={item.id} 
-            {...item} 
-            className={classes} 
-            Icon={Icon}         
-          />
-        );
-      })}
+        {mockAlertsData.map((item) => {
+        
+          return (
+            <AlertCard key={item.id} {...item}  />
+          );
+        })}
       </div>
 
       <div className="flex flex-col gap-5 lg:flex-row  justify-between">
@@ -98,7 +86,7 @@ export default function Dashboard() {
           </div>
 
           <div className="space-y-4">
-            {activities.map((item) => (
+            {mockActivitiesData.map((item) => (
               <ActivityCard key={item.id} {...item} />
             ))}
           </div>
@@ -111,7 +99,7 @@ export default function Dashboard() {
           </h2>
 
           <div className="space-y-6">
-            {materials.map((item) => (
+            {mockMaterialsData.map((item) => (
              <MaterialCard key={item.id} {...item} />
             ))}
           </div>

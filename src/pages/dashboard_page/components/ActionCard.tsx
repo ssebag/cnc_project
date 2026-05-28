@@ -1,16 +1,18 @@
 import React from 'react'
 
-function ActionCard({cardColor, IconCard, titleAction, detailAction}) {
+function ActionCard({color, icon, title, description}) {
   return (
-    <div className={`${cardColor} text-white rounded-2xl p-6 flex flex-col gap-5`}>
-    <IconCard size={40} className="text-white" />
+    <div className={`${color} text-white rounded-2xl p-6 flex flex-col gap-5`}>
+      <div className="text-white">
+        {icon}
+      </div>
      <div>
        <h2 className="text-2xl font-bold">
-         {titleAction} 
+         {title} 
        </h2>
 
        <p className="mt-2 text-white/80">
-         {detailAction} 
+         {description} 
        </p>
      </div>
     </div>    
