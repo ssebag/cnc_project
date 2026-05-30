@@ -1,5 +1,4 @@
 import { Eye, Download, Trash2 } from "lucide-react";
-
 import { Card, CardHeader } from "./Card";
 import { Button } from "./Button";
 import OrderDetailsRow from './OrderDetailsRow'
@@ -10,7 +9,7 @@ interface SelectedOrderDetailsProps {
   onViewDetails: (id: string) => void;
 }
 
-export default function SelectedOrderDetails({
+export default function OrderDetails({
   selectedOrder,
   onViewDetails,
 }: SelectedOrderDetailsProps) {
