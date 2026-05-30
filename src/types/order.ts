@@ -8,6 +8,7 @@ export interface OrderItem {
     quantity: number,
     status: 'قيد المعالجة' | 'في الانتظار' | 'مكتمل' | 'ملغي' ;
     priority:'عالية'|'متوسطة'|'منخفضة';
+    statusType:'processing'|'pending'|'completed'|'cancelled',
     price: number;
     order_date: string;
     delivery_date: string;
