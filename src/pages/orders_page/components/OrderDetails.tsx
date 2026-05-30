@@ -58,7 +58,7 @@ export default function SelectedOrderDetails({
         <div className="pt-4 space-y-2">
           <Button
             variant="primary"
-            className="w-full justify-center"
+            className="w-full justify-center cursor-pointer"
             onClick={() =>
               onViewDetails(selectedOrder.id)
             }
@@ -69,7 +69,7 @@ export default function SelectedOrderDetails({
 
           <Button
             variant="secondary"
-            className="w-full justify-center"
+            className="w-full justify-center cursor-pointer"
           >
             <Download className="w-4 h-4" />
             تنزيل SVG
@@ -79,7 +79,7 @@ export default function SelectedOrderDetails({
             selectedOrder.status !== "مكتمل" && (
               <Button
                 variant="danger"
-                className="w-full justify-center"
+                className="w-full justify-center cursor-pointer"
               >
                 <Trash2 className="w-4 h-4" />
                 إلغاء الطلب
