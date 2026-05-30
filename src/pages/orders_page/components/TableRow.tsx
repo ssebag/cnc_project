@@ -1,19 +1,5 @@
 import { MoreVertical } from "lucide-react";
-
-function statusStyle(type) {
-  switch (type) {
-    case "processing":
-      return "bg-blue-100 text-blue-700 border-blue-200";
-    case "pending":
-      return "bg-yellow-100 text-yellow-700 border-yellow-200";
-    case "completed":
-      return "bg-green-100 text-green-700 border-green-200";
-    case "cancelled":
-      return "bg-red-100 text-red-700 border-red-200";
-    default:
-      return "bg-slate-100 text-slate-700 border-slate-200";
-  }
-}
+import { statusColors } from '../../../helper'
 
 function TableRow({ orders, onSelectOrder }) {
   return (
@@ -35,7 +21,7 @@ function TableRow({ orders, onSelectOrder }) {
           <td className="px-6 py-4">
             <span
               className={`inline-flex  items-center px-3 py-1 rounded-full border text-xs 
-              font-medium whitespace-nowrap ${statusStyle(order.statusType)}`}>
+              font-medium whitespace-nowrap ${statusColors[order.status]}`}>
               {order.status}
             </span>
           </td>

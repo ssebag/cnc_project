@@ -6,7 +6,7 @@ import OrderSearch from "./components/OrderSearch";
 import Table from "./components/Table";
 import TableRow from "./components/TableRow";
 import Pagination from "./components/Pagination";
-import  OrderDetails  from './components/OrderDetails';
+import OrderDetails from "./components/OrderDetails";
 
 export default function Orders() {
   const [activeTab, setActiveTab] = useState("all");
@@ -35,27 +35,25 @@ export default function Orders() {
     });
   }, [activeTab, search]);
 
-/* for pagination */
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
-  const paginatedOrders = useMemo(() => {
+    /* for pagination */
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 10;
+    const paginatedOrders = useMemo(() => {
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
   
     return filteredOrders.slice(start, end);
-  }, [filteredOrders, currentPage]);
-  const totalPages = Math.ceil(
-    filteredOrders.length / itemsPerPage
-  );
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [activeTab, search]);
-
-  const [viewingOrderDetails, setViewingOrderDetails] = useState<string | null>(null);
+    }, [filteredOrders, currentPage]);
+    const totalPages = Math.ceil(
+      filteredOrders.length / itemsPerPage
+    );
+    useEffect(() => {
+      setCurrentPage(1);
+    }, [activeTab, search]);
   
-  if (viewingOrderDetails) {
-    return <OrderDetails orderId={viewingOrderDetails} onBack={() => setViewingOrderDetails(null)} />;
-  }
+  const [viewingOrderDetails, setViewingOrderDetails] = useState<string | null>(null);
+ 
+  
   return (
     <div className="space-y-6" >
       {/* Header */}
@@ -96,7 +94,11 @@ export default function Orders() {
         </div>
       </div>
 
-      
+      {/* Order Details */}
+      <OrderDetails
+        selectedOrder={selectedOrder}
+        onViewDetails={setViewingOrderDetails}
+      />
     </div>
   );
 }

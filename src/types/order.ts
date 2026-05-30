@@ -4,8 +4,12 @@ export interface OrderItem {
     id: string;
     customer: string;
     product: string;
+    material:string,
+    quantity: number,
     status: 'قيد المعالجة' | 'في الانتظار' | 'مكتمل' | 'ملغي' ;
-    statusType:'processing'|'pending'|'completed'|'cancelled',
+    priority:'عالية'|'متوسطة'|'منخفضة';
     price: number;
+    order_date: string;
+    delivery_date: string;
   }
   

@@ -1,4 +1,5 @@
 import React from 'react'
+import { statusColors } from '../../../helper'
 
 function ActivityCard({id, title, status, Icon , workProgress, time}) {
     
@@ -19,16 +20,7 @@ function ActivityCard({id, title, status, Icon , workProgress, time}) {
                 {title}
                 </h3>
                 <p className={`mt-2 flex gap-2 items-center 
-                border  p-1.5 rounded-4xl text-xs
-                ${
-                    (() => {
-                    switch (status) {
-                        case 'قيد المعالجة': return 'border-blue-500 bg-blue-200 text-blue-500';
-                        case 'يحتاج مراجعة':     return 'border-amber-500 bg-amber-100 text-amber-600';
-                        case 'قيد الإنتاج': return 'border-cyan-500 bg-cyan-100 text-cyan-600';
-                        case 'مكتمل':  return 'border-purple-500 bg-purple-100 text-purple-600';
-                        default:           return 'border-gray-500 bg-gray-100 text-gray-600';
-                    }
+                border  p-1.5 rounded-4xl text-xs ${statusColors[status]}
                     })()
                 }`}>
                 <Icon size={15}/>
