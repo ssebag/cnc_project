@@ -8,7 +8,7 @@ import {
   topProducts,
   machineStats,
 } from '../../data/mockReportsData';
-import ReportsHeader from './components/ReportsHeader';
+import Header from '../../component/Header';
 import TabFilters from './components/TabFilters';
 import MetricCard from './components/MetricCard';
 import RevenueTrendChart from './components/RevenueTrendChart';
@@ -25,9 +25,9 @@ export default function Reports() {
       <main className="w-full p-4 md:p-6 lg:p-8 pb-20 md:pb-8">
         <div className="space-y-6">
           {/* Header */}
-          <ReportsHeader
+          <Header
             title="التقارير والتحليلات"
-            subtitle="رؤى شاملة عن أداء الورشة"
+            description="رؤى شاملة عن أداء الورشة"
           />
 
           {/* Tab Filters */}

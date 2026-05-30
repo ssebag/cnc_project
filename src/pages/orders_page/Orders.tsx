@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect } from "react";
 import { mockOrderData } from '../../data/mockOrder';
-import OrderHeader from './components/OrderHeader'
+import Header from '../../component/Header'
 import TabFilters from "./components/TabFilters";
 import OrderSearch from "./components/OrderSearch";
 import Table from "./components/Table";
@@ -57,7 +57,9 @@ export default function Orders() {
   return (
     <div className="space-y-6" >
       {/* Header */}
-      <OrderHeader />
+      <Header
+        title="إدارة الطلبات" 
+        description="عرض وإدارة جميع طلبات CNC" />
 
       {/* Top Controls */}
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Package, TrendingDown, TriangleAlert, Plus } from 'lucide-react';
 import type { InventoryItem } from '../../types/inventory';
 import { mockInventoryData } from '../../data/mockInventory';
-import InventoryHeader from './components/InventoryHeader';
+import Header from '../../component/Header';
 import StatCard from './components/StatCard';
 import AlertBanner from './components/AlertBanner';
 import SearchBar from './components/SearchBar';
@@ -43,9 +43,9 @@ export default function Inventory() {
       <main className="w-full p-4 md:p-6 lg:p-8 pb-20 md:pb-8">
         <div className="space-y-6">
           {/* Header */}
-          <InventoryHeader
+          <Header
             title="إدارة المخزون"
-            subtitle="تتبع وإدارة موارد التصنيع"
+            description="تتبع وإدارة موارد التصنيع"
           />
 
           {/* Stats Cards */}

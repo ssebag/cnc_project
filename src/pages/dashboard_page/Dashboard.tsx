@@ -4,7 +4,7 @@ import ActionCard from './components/ActionCard'
 import ActivityCard from './components/ActivityCard'
 import MaterialCard from './components/MaterialCard'
 import AlertCard from './components/AlertCard'
-import DashbardHeader from "./components/DashbardHeader";
+import Header from "../../component/Header";
 import { mockActivitiesData } from '../../data/mockActivities'
 import { mockMaterialsData } from '../../data/mockMaterials'
 import { mockAlertsData } from '../../data/mockAlerts'
@@ -14,7 +14,9 @@ export default function Dashboard() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <DashbardHeader />
+      <Header
+      title="  نظام تشغيل ورش CNC"
+      description="مدعوم بالذكاء الاصطناعي - لوحة التحكم التشغيلية" />
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
