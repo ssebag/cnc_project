@@ -1,18 +1,21 @@
 import { Eye, Download, Trash2 } from "lucide-react";
 import { Card, CardHeader } from "./Card";
 import { Button } from "./Button";
-import OrderDetailsRow from './OrderDetailsRow'
-import { priorityColors, statusColors } from '../../../helper'
+import OrderDetailsRow from './OrderDetailsRow';
+import { priorityColors, statusColors } from '../../../helper';
+import { useNavigate } from 'react-router-dom'; 
 
 interface SelectedOrderDetailsProps {
   selectedOrder: any;
-  onViewDetails: (id: string) => void;
+  onViewDetails?: (id: string) => void; 
 }
 
 export default function OrderDetails({
   selectedOrder,
   onViewDetails,
 }: SelectedOrderDetailsProps) {
+  const navigate = useNavigate(); 
+
   if (!selectedOrder) {
     return (
       <Card>
@@ -26,6 +29,16 @@ export default function OrderDetails({
     );
   }
 
+  // 3. دالة الانتقال عند الضغط على الزر
+  const handleNavigateToDetails = () => {
+    // إذا كنت تريد استدعاء الدالة القادمة من الأب أيضاً
+    if (onViewDetails) {
+      onViewDetails(selectedOrder.id);
+    }
+    // تغيير الراوت ليحتوي على ID الطلب (قم بتغيير المسار /orders/ حسب هيكلة الراوتر لديك)
+    navigate(`/orders/${selectedOrder.id}`); 
+  };
+
   return (
     <Card>
       <CardHeader
@@ -34,10 +47,10 @@ export default function OrderDetails({
       />
 
       <div className="space-y-4">
-      <OrderDetailsRow title="اسم العميل :" info={selectedOrder.customer} classStyle="" />
-       <OrderDetailsRow title="المنتج :" info={selectedOrder.item} classStyle="" />
-       <div className="grid grid-cols-2 gap-4">
-          <OrderDetailsRow title="المادة :" info= {selectedOrder.material} classStyle=""/>
+        <OrderDetailsRow title="اسم العميل :" info={selectedOrder.customer} classStyle="" />
+        <OrderDetailsRow title="المنتج :" info={selectedOrder.product} classStyle="" />
+        <div className="grid grid-cols-2 gap-4">
+          <OrderDetailsRow title="المادة :" info={selectedOrder.material} classStyle=""/>
           <OrderDetailsRow title="الكمية :" info={selectedOrder.quantity} classStyle=""/>
         </div>
         <div className="grid grid-cols-2 gap-4">
@@ -50,17 +63,15 @@ export default function OrderDetails({
         </div>
         <div className="grid grid-cols-2 gap-4">
           <OrderDetailsRow title="تاريخ الطلب :" info={selectedOrder.order_date} classStyle=""/>
-          <OrderDetailsRow title="موعد التسليم :" info= {selectedOrder.delivery_date} classStyle=""/>
+          <OrderDetailsRow title="موعد التسليم :" info={selectedOrder.delivery_date} classStyle=""/>
         </div>
         <hr />
-           <OrderDetailsRow title="السعر الإجمالي : " info={`${selectedOrder.price} ريال`} classStyle=""/>
+        <OrderDetailsRow title="السعر الإجمالي : " info={`${selectedOrder.price} ريال`} classStyle=""/>
         <div className="pt-4 space-y-2">
           <Button
             variant="primary"
             className="w-full justify-center cursor-pointer"
-            onClick={() =>
-              onViewDetails(selectedOrder.id)
-            }
+            onClick={handleNavigateToDetails} // 4. ربط الدالة الجديدة بالزر
           >
             <Eye className="w-4 h-4" />
             عرض التفاصيل
