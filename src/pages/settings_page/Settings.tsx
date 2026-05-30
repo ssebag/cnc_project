@@ -5,6 +5,7 @@ import SettingsMachine from './SettingsMachine';
 import SettingsPricing from './SettingsPricing';
 import SettingsMaterials from './SettingsMaterials';
 import SettingsSystem from './SettingsSystem';
+import Header from '../../component/Header';
 
 import {
   Bell,
@@ -25,10 +26,10 @@ function Settings() {
 
   return (
   <div className='bg-[#F5F7FA] p-5' dir='rtl'> 
-    <div className='w-full'>
-      <h1 className='text-[30px] m-2'>الإعدادات</h1>
-      <p className='text-gray-500 m-2'>إدارة إعدادات النظام والحساب</p>
-    </div>
+    <Header 
+      title="الإعدادات"
+      description="إدارة إعدادات النظام والحساب"
+    />
       
     <div className='w-full flex flex-col md:flex-row'>
       
